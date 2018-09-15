@@ -19,21 +19,23 @@ import javax.validation.Valid;
 
 @RestController
 public class UserController {
+	
+	
 
 	@Autowired
-	private UserService userService;
+	private UserService userservice;
 
 	List<User> users = new ArrayList<>();
 
 	@GetMapping("/users")
 	public ResponseEntity<List<User>> getUser() {
-		ResponseEntity<List<User>> response = new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
+		ResponseEntity<List<User>> response = new ResponseEntity<>(userservice.getAllUsers(), HttpStatus.OK);
 		return response;
 	}
 
 	@PostMapping("/users")
 	public HttpStatus createUsers(@Valid @RequestBody User user) {
-		boolean test = userService.saveUser(user);
+		boolean test = userservice.saveUser(user);
 		if (test) {
 			return HttpStatus.CREATED;
 		} else {
@@ -43,7 +45,7 @@ public class UserController {
 
 	@PutMapping("/users/{empId}")
 	public HttpStatus editUsers(@RequestBody User user, @PathVariable("empId") int id) {
-		boolean test = userService.updateUser(user, id);
+		boolean test = userservice.updateUser(user);
 		if (test) {
 			return HttpStatus.OK;
 		} else {
@@ -52,8 +54,8 @@ public class UserController {
 	}
 
 	@DeleteMapping("/users/{empId}")
-	public HttpStatus deleteUsers(@PathVariable("empId") int id) {
-		boolean test = userService.deleteUser(id);
+	public HttpStatus deleteUsers(@PathVariable("empId") Long id) {
+		boolean test = userservice. deleteUser(id);
 		if (test) {
 			return HttpStatus.OK;
 		} else {

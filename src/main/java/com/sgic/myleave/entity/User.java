@@ -1,27 +1,40 @@
 package com.sgic.myleave.entity;
 
-import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-public class User {
+@Entity
+@Table(schema = "leave", name = "user")
+public class User implements Serializable {
 
-	int empId;
-	@NotEmpty(message = "Name Cannot be Null")
-	String name;
-	@NotEmpty(message = "Designation Cannot be Null")
-	String designation;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6037643998340730223L;
 
-	public User(int empId, String name, String designation) {
-		this.empId = empId;
-		this.name = name;
-		this.designation = designation;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String name;
+	private String telephone;
+
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
+	private List<LeaveRequest> leaveRequest;
+
+	public Long getId() {
+		return id;
 	}
 
-	public int getEmpId() {
-		return empId;
-	}
-
-	public void setEmpId(int empId) {
-		this.empId = empId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -32,12 +45,22 @@ public class User {
 		this.name = name;
 	}
 
-	public String getDesignation() {
-		return designation;
+	public String getTelephone() {
+		return telephone;
 	}
 
-	public void setDesignation(String designation) {
-		this.designation = designation;
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
+
+	public List<LeaveRequest> getLeaveRequest() {
+		return leaveRequest;
+	}
+
+	public void setLeaveRequest(List<LeaveRequest> leaveRequest) {
+		this.leaveRequest = leaveRequest;
+	}
+	
+	
 
 }

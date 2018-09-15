@@ -1,4 +1,10 @@
 com\sgic\myleave\controller\LeaveTypeController.class
+com\sgic\myleave\repositories\LeaveRepository.class
+com\sgic\myleave\repositories\LeaveRequestRepository.class
+com\sgic\myleave\repositories\UserRepository.class
+com\sgic\myleave\controller\UserController.class
+com\sgic\myleave\entity\Leave.class
+com\sgic\myleave\entity\LeaveType.class
 com\sgic\myleave\entity\User.class
 com\sgic\myleave\controller\LeaveRequestController.class
 com\sgic\myleave\service\UserServiceImpl.class
@@ -6,6 +12,3 @@ com\sgic\myleave\Application.class
 com\sgic\myleave\entity\LeaveRequest.class
 com\sgic\myleave\controller\LeaveController.class
 com\sgic\myleave\service\UserService.class
-com\sgic\myleave\controller\UserController.class
-com\sgic\myleave\entity\Leave.class
-com\sgic\myleave\entity\LeaveType.class

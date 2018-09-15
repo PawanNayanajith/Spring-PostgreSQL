@@ -1,28 +1,34 @@
 package com.sgic.myleave.service;
 
 import com.sgic.myleave.entity.User;
+import com.sgic.myleave.repositories.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
+
+	@Autowired
+	private UserRepository userRepository;
+
 	private List<User> users = new ArrayList<>();
 
 	@Override
 	public boolean saveUser(User user) {
-		users.add(user);
+		userRepository.save(user);
 		return true;
 	}
 
 	@Override
-	public boolean updateUser(User user, int id) {
+	public boolean updateUser(User user) {
 		for (User existingUser : users) {
-			if (existingUser.getEmpId() == id) {
-				existingUser.setDesignation(user.getDesignation());
+			if (existingUser.getId() == user.getId()) {
 				existingUser.setName(user.getName());
+				existingUser.setTelephone(user.getTelephone());
 				return true;
 			}
 		}
@@ -31,19 +37,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> getAllUsers() {
-		return users;
+		return userRepository.findAll();
 	}
 
 	@Override
-	public boolean deleteUser(int id) {
-		for (User existingUser : users) {
-			if (existingUser.getEmpId() == id) {
-				// users.remove(users.indexOf(existingUser));
-				users.remove(existingUser);
-				return true;
-			}
-		}
-		return false;
+	public boolean deleteUser(Long id) {
+		userRepository.deleteById(id);
+		return true;
 	}
 
 }
