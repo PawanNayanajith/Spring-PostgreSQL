@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
@@ -19,8 +20,6 @@ import javax.validation.Valid;
 
 @RestController
 public class UserController {
-	
-	
 
 	@Autowired
 	private UserService userservice;
@@ -28,10 +27,29 @@ public class UserController {
 	List<User> users = new ArrayList<>();
 
 	@GetMapping("/users")
-	public ResponseEntity<List<User>> getUser() {
-		ResponseEntity<List<User>> response = new ResponseEntity<>(userservice.getAllUsers(), HttpStatus.OK);
-		return response;
+	public ResponseEntity<List<User>> getUser(@RequestParam(value = "userName", required = false) String userName) {
+		if (userName == null) {
+			ResponseEntity<List<User>> response = new ResponseEntity<>(userservice.getAllUsers(), HttpStatus.OK);
+			return response;
+		} else {
+			List<User> FoundUser = userservice.getOneUserByName(userName);
+			if (!FoundUser.isEmpty()) {
+				ResponseEntity<List<User>> response = new ResponseEntity<>(FoundUser, HttpStatus.OK);
+				return response;
+			} else {
+				//How to Pass message with List?
+				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			}
+
+		}
 	}
+
+	/*
+	 * @GetMapping("/users/{id}") public ResponseEntity<Optional<User>>
+	 * getSpecificUser(@PathVariable Long id) { ResponseEntity<Optional<User>>
+	 * response = new ResponseEntity<>(userservice.getOneUser(id), HttpStatus.OK);
+	 * return response; }
+	 */
 
 	@PostMapping("/users")
 	public HttpStatus createUsers(@Valid @RequestBody User user) {
@@ -44,8 +62,8 @@ public class UserController {
 	}
 
 	@PutMapping("/users/{empId}")
-	public HttpStatus editUsers(@RequestBody User user, @PathVariable("empId") int id) {
-		boolean test = userservice.updateUser(user);
+	public HttpStatus editUsers(@RequestBody User user, @PathVariable("empId") Long id) {
+		boolean test = userservice.updateUser(user, id);
 		if (test) {
 			return HttpStatus.OK;
 		} else {
@@ -55,7 +73,7 @@ public class UserController {
 
 	@DeleteMapping("/users/{empId}")
 	public HttpStatus deleteUsers(@PathVariable("empId") Long id) {
-		boolean test = userservice. deleteUser(id);
+		boolean test = userservice.deleteUser(id);
 		if (test) {
 			return HttpStatus.OK;
 		} else {

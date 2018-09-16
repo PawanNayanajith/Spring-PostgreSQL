@@ -24,7 +24,7 @@ public class Leave implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String leaveName;
-	private String allocation;
+	private Integer allocation;
 
 	@OneToMany(mappedBy = "leave", fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	private List<LeaveRequest> leaveRequest;
@@ -45,11 +45,11 @@ public class Leave implements Serializable {
 		this.leaveName = leaveName;
 	}
 
-	public String getAllocation() {
+	public Integer getAllocation() {
 		return allocation;
 	}
 
-	public void setAllocation(String allocation) {
+	public void setAllocation(Integer allocation) {
 		this.allocation = allocation;
 	}
 

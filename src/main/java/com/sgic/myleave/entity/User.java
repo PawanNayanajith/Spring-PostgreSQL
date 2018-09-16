@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(schema = "leave", name = "user")
 public class User implements Serializable {
@@ -52,15 +54,13 @@ public class User implements Serializable {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-
+	@JsonIgnore
 	public List<LeaveRequest> getLeaveRequest() {
 		return leaveRequest;
 	}
 
-	public void setLeaveRequest(List<LeaveRequest> leaveRequest) {
+/*	public void setLeaveRequest(List<LeaveRequest> leaveRequest) {
 		this.leaveRequest = leaveRequest;
 	}
-	
-	
-
+*/
 }

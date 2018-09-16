@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(schema = "leave", name = "leave_request")
@@ -46,7 +48,7 @@ public class LeaveRequest implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	@JsonIgnore
 	public Leave getLeave() {
 		return leave;
 	}
@@ -55,6 +57,7 @@ public class LeaveRequest implements Serializable {
 		this.leave = leave;
 	}
 
+	@JsonIgnore
 	public User getUser() {
 		return user;
 	}
