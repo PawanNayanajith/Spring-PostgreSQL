@@ -8,7 +8,7 @@
 	<artifactId>gs-rest-service</artifactId>
 	<version>0.1.0</version>
 
-	<name>My Leave</name>
+	<name>My Leave App @Pawan</name>
 	<description>Spring Boot Test Application By Pawan</description>
 
 	<parent>

@@ -17,3 +17,4 @@ com\sgic\myleave\Application.class
 com\sgic\myleave\entity\LeaveRequest.class
 com\sgic\myleave\controller\LeaveController.class
 com\sgic\myleave\service\UserService.class
+com\sgic\myleave\criteria\UserCriteria.class
