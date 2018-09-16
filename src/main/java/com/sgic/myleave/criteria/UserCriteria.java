@@ -2,16 +2,16 @@ package com.sgic.myleave.criteria;
 
 public class UserCriteria {
 
-	private String userNaeme;
+	private String userName;
 	private String leaveName;
 	private Integer leaveAllocation;
 	private String telephone;
 	
-	public String getUserNaeme() {
-		return userNaeme;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUserNaeme(String userNaeme) {
-		this.userNaeme = userNaeme;
+	public void setUserNaeme(String userName) {
+		this.userName = userName;
 	}
 	public String getLeaveName() {
 		return leaveName;
@@ -19,11 +19,11 @@ public class UserCriteria {
 	public void setLeaveName(String leaveName) {
 		this.leaveName = leaveName;
 	}
-	public Integer getLeaveApplication() {
+	public Integer getLeaveAllocation() {
 		return leaveAllocation;
 	}
-	public void setLeaveApplication(Integer leaveApplication) {
-		this.leaveAllocation = leaveApplication;
+	public void setLeaveAllocation(Integer leaveAllocation) {
+		this.leaveAllocation = leaveAllocation;
 	}
 	public String getTelephone() {
 		return telephone;
