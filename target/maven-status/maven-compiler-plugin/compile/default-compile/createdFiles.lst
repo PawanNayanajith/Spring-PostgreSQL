@@ -1,7 +1,12 @@
 com\sgic\myleave\controller\LeaveTypeController.class
+com\sgic\myleave\entity\QLeave.class
+com\sgic\myleave\entity\QUser.class
 com\sgic\myleave\repositories\LeaveRepository.class
 com\sgic\myleave\repositories\LeaveRequestRepository.class
 com\sgic\myleave\repositories\UserRepository.class
+com\sgic\myleave\service\LeaveRequestServiceImpl.class
+com\sgic\myleave\entity\QLeaveRequest.class
+com\sgic\myleave\service\LeaveRequestService.class
 com\sgic\myleave\controller\UserController.class
 com\sgic\myleave\entity\Leave.class
 com\sgic\myleave\entity\LeaveType.class

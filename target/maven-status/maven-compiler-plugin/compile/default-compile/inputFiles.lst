@@ -5,10 +5,15 @@ C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation
 C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\entity\LeaveRequest.java
 C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\repositories\LeaveRequestRepository.java
 C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\Application.java
+C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\target\generated-sources\java\com\sgic\myleave\entity\QLeaveRequest.java
+C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\service\LeaveRequestService.java
+C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\service\LeaveRequestServiceImpl.java
 C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\service\UserService.java
+C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\target\generated-sources\java\com\sgic\myleave\entity\QLeave.java
 C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\entity\Leave.java
 C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\controller\UserController.java
 C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\controller\LeaveRequestController.java
 C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\entity\User.java
+C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\target\generated-sources\java\com\sgic\myleave\entity\QUser.java
 C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\repositories\LeaveRepository.java
 C:\Users\Pawan\Desktop\Spring_PostgreSQL\SpringTestApp-withServiceImplementation\src\main\java\com\sgic\myleave\service\UserServiceImpl.java
