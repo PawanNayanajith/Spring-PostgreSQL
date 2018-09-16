@@ -1,6 +1,7 @@
 package com.sgic.myleave.controller;
 
 import com.sgic.myleave.service.UserService;
+import com.sgic.myleave.criteria.UserCriteria;
 import com.sgic.myleave.entity.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,19 +38,19 @@ public class UserController {
 				ResponseEntity<List<User>> response = new ResponseEntity<>(FoundUser, HttpStatus.OK);
 				return response;
 			} else {
-				//How to Pass message with List?
+				// How to Pass message with List?
 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 			}
 
 		}
 	}
 
-	/*
-	 * @GetMapping("/users/{id}") public ResponseEntity<Optional<User>>
-	 * getSpecificUser(@PathVariable Long id) { ResponseEntity<Optional<User>>
-	 * response = new ResponseEntity<>(userservice.getOneUser(id), HttpStatus.OK);
-	 * return response; }
-	 */
+	@GetMapping("/users/search")
+	public ResponseEntity<List<User>> getUsers(UserCriteria userCriteria) {
+		List<User> users = userservice.search(userCriteria);
+		ResponseEntity<List<User>> response = new ResponseEntity<>(users, HttpStatus.OK);
+		return response;
+	}
 
 	@PostMapping("/users")
 	public HttpStatus createUsers(@Valid @RequestBody User user) {
